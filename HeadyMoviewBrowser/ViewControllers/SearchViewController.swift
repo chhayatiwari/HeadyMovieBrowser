@@ -20,11 +20,6 @@ protocol PaginationDelegate {
 class SearchViewController: UICollectionViewController {
 
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
     private let reuseIdentifierCell: String = "PhotoCell"
     private let reuseIdentifierFooter: String = "FooterView"
     private let detailSegue: String = "detailPhotoSegue"
@@ -123,7 +118,7 @@ class SearchViewController: UICollectionViewController {
         }
     }
     
-    func refreshControlAction() {
+    @objc func refreshControlAction() {
         let duration = DispatchTime.now() + 0.5
         DispatchQueue.main.asyncAfter(deadline: duration) {
             if let currentKeyword = self.searchBar.text {
@@ -216,7 +211,7 @@ class SearchViewController: UICollectionViewController {
         }
         return CGSize.zero
     }
-    
+ /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == detailSegue {
             guard let indexPath = collectionView?.indexPath(for: sender as! PhotoCell) else { return }
@@ -228,7 +223,7 @@ class SearchViewController: UICollectionViewController {
             }
         }
     }
-    
+    */
     // MARK: UIScrollViewDelegate
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {

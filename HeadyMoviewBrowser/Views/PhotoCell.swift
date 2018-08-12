@@ -1,5 +1,5 @@
 //
-//  MoviewPosterCollectionViewCell.swift
+//  PhotoCell.swift
 //  HeadyMoviewBrowser
 //
 //  Created by Chhaya Tiwari on 8/11/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MoviewPosterCollectionViewCell: UICollectionViewCell {
+class PhotoCell: UICollectionViewCell {
     
     @IBOutlet weak var photoName: UILabel!
     

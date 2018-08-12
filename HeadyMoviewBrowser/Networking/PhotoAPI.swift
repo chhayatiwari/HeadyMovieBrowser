@@ -17,10 +17,10 @@ final class PhotoAPI {
     
     static let shared = PhotoAPI()
     
-    private let apiBaseURL = "https://api.themoviedb.org/3"
+    private let apiBaseURL = Constants.BaseUrl
     
     private let defaultParams = [
-        "api_key": "79f6a22bb53b1a0749f542396d1674ca"
+        "api_key": Constants.ApiKey
     ]
     
     // MARK: Public methods

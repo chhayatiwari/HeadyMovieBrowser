@@ -1,5 +1,5 @@
 //
-//  SearchCollectionReusableView.swift
+//  CollectionReusableView.swift
 //  HeadyMoviewBrowser
 //
 //  Created by Chhaya Tiwari on 8/11/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchCollectionReusableView: UICollectionReusableView {
+class CollectionReusableView: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
