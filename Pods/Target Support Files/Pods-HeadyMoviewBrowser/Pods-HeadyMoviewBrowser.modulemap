@@ -1,0 +1,6 @@
+framework module Pods_HeadyMoviewBrowser {
+  umbrella header "Pods-HeadyMoviewBrowser-umbrella.h"
+
+  export *
+  module * { export * }
+}
