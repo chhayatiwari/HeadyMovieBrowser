@@ -1,0 +1,41 @@
+//
+//  DetailViewController.swift
+//  HeadyMoviewBrowser
+//
+//  Created by Chhaya Tiwari on 8/13/18.
+//  Copyright © 2018 chhayatiwari. All rights reserved.
+//
+
+import UIKit
+import UIKit
+import SnapKit
+import AlamofireImage
+
+class DetailViewController: UIViewController {
+
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var detailImageView: UIImageView!
+    @IBOutlet weak var descLabel: UILabel!
+    @IBOutlet weak var userRatingLabel: UILabel!
+    @IBOutlet weak var releaseDate: UILabel!
+    var photoDetail: Photo!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let url = URL(string: photoDetail.imageURL)!
+        detailImageView.af_setImage(withURL: url)
+        
+        titleLabel.text = photoDetail.name
+        userRatingLabel.text = userRatingLabel.text! + String(photoDetail.userRaring)
+       /* let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+         if let yourDate = dateFormatter.date(from:photoDetail.createdAt) { }*/
+        releaseDate.text = releaseDate.text! + photoDetail.createdAt
+        
+        descLabel.text =  photoDetail.description ?? "No Description"
+    }
+
+ 
+}

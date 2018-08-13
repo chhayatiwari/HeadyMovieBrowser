@@ -212,7 +212,7 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
         }
         return CGSize.zero
     }
- /*
+ 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == detailSegue {
             guard let indexPath = collectionView?.indexPath(for: sender as! PhotoCell) else { return }
@@ -224,7 +224,7 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
             }
         }
     }
-    */
+    
     // MARK: UIScrollViewDelegate
     
      func scrollViewDidScroll(_ scrollView: UIScrollView) {

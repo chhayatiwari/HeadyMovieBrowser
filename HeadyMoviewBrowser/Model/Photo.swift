@@ -14,8 +14,8 @@ struct Photo {
     let description: String?
     let nsfw: Bool
     let imageURL: String
-    let createdAt: Date?
-    
+    let createdAt: String
+    let userRaring: Int
 }
 
 extension Photo: Unboxable {
@@ -25,9 +25,9 @@ extension Photo: Unboxable {
         self.description = unboxer.unbox(key: "overview")
         self.nsfw = try unboxer.unbox(key: "adult")
         self.imageURL = try unboxer.unbox(key: "poster_path")
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-        self.createdAt = unboxer.unbox(keyPath: "release_date", formatter: dateFormatter)
+        self.userRaring = try unboxer.unbox(key: "vote_average")
+       /* let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ" */
+        self.createdAt = try unboxer.unbox(key: "release_date")
     }
 }
