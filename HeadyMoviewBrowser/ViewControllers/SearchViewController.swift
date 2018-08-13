@@ -17,8 +17,9 @@ protocol PaginationDelegate {
     func fetchMoreItems(with activityIndicator: UIActivityIndicatorView)
 }
 
-class SearchViewController: UICollectionViewController {
+class SearchViewController: UIViewController , UICollectionViewDelegate, UICollectionViewDataSource {
 
+    @IBOutlet weak var collectionView: UICollectionView!
     
     private let reuseIdentifierCell: String = "PhotoCell"
     private let reuseIdentifierFooter: String = "FooterView"
@@ -49,7 +50,7 @@ class SearchViewController: UICollectionViewController {
             if let photos = searchResult?.photos {
                 self.photos.append(contentsOf: photos)
             }
-            self.emptyStateView.isHidden = (searchResult?.totalItems)! > 0 ? true : false
+           // self.emptyStateView.isHidden = (searchResult?.totalItems)! > 0 ? true : false
         }
     }
     
@@ -60,7 +61,7 @@ class SearchViewController: UICollectionViewController {
         indicator.bounds.size.height = 65
         return indicator
     }()
-    
+    /*
     var emptyStateView: UIImageView = {
         let emptyState = UIImageView(image: UIImage(named: "search-results-empty-state"))
         emptyState.snp.makeConstraints {
@@ -69,11 +70,11 @@ class SearchViewController: UICollectionViewController {
         emptyState.isHidden = false
         return emptyState
     }()
-    
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.titleView = UIImageView(image: UIImage(named: "navbar-logo"))
+        //self.navigationItem.titleView = UIImageView(image: UIImage(named: "navbar-logo"))
         
         searchBar.delegate = self
         paginationDelegate = self
@@ -84,9 +85,9 @@ class SearchViewController: UICollectionViewController {
         
         addSearchBar()
         addRefreshControl()
-        addEmptyState()
+       // addEmptyState()
     }
-    
+    /*
     func addEmptyState() {
         view.addSubview(emptyStateView)
         emptyStateView.snp.makeConstraints {
@@ -94,7 +95,7 @@ class SearchViewController: UICollectionViewController {
             $0.top.equalTo(topLayoutGuide.snp.bottom).offset(80.0)
         }
     }
-    
+    */
     func addSearchBar() {
         view.addSubview(searchBar)
         searchBar.snp.makeConstraints {
@@ -150,15 +151,15 @@ class SearchViewController: UICollectionViewController {
     
     // MARK: UICollectionViewDataSource
     
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = PhotoCell()
         if let photoCell: PhotoCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifierCell, for: indexPath) as? PhotoCell {
             photoCell.photoName.text = photos[indexPath.row].name
@@ -173,7 +174,7 @@ class SearchViewController: UICollectionViewController {
         return cell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseIdentifierFooter, for: indexPath)
         
@@ -226,7 +227,7 @@ class SearchViewController: UICollectionViewController {
     */
     // MARK: UIScrollViewDelegate
     
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         if let collectionView: UICollectionView = scrollView as? UICollectionView {
             let searchBarBoundsY = (self.navigationController?.navigationBar.frame.size.height)! + UIApplication.shared.statusBarFrame.size.height
@@ -239,7 +240,7 @@ class SearchViewController: UICollectionViewController {
         }
     }
     
-    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if decelerate {
             
             let y = scrollView.contentOffset.y + scrollView.bounds.size.height
@@ -276,7 +277,7 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        if searchText.characters.count > 0 {
+        if searchText.count > 0 {
             self.searchBarActive = true
         } else {
             self.searchBarActive = false
@@ -314,7 +315,7 @@ extension SearchViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         searchBar.text = ""
         photos.removeAll()
-        emptyStateView.isHidden = photos.count > 0 ? true : false
+     //   emptyStateView.isHidden = photos.count > 0 ? true : false
     }
 
 }

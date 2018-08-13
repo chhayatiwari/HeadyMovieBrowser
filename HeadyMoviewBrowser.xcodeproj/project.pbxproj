@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		182476CA2120A72000E07FDA /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182476C92120A72000E07FDA /* SearchResult.swift */; };
 		182476CC2120B0F000E07FDA /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182476CB2120B0F000E07FDA /* Photo.swift */; };
+		182476CF212184DF00E07FDA /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182476CE212184DF00E07FDA /* AppAppearance.swift */; };
 		18273EA6211DA39C00D4DE47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18273EA5211DA39C00D4DE47 /* AppDelegate.swift */; };
 		18273EA8211DA39C00D4DE47 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18273EA7211DA39C00D4DE47 /* SearchViewController.swift */; };
 		18273EAB211DA39C00D4DE47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18273EA9211DA39C00D4DE47 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		0F940952EE9C5FA3DADED263 /* Pods-HeadyMoviewBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeadyMoviewBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeadyMoviewBrowser/Pods-HeadyMoviewBrowser.release.xcconfig"; sourceTree = "<group>"; };
 		182476C92120A72000E07FDA /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		182476CB2120B0F000E07FDA /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		182476CE212184DF00E07FDA /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 		18273EA2211DA39C00D4DE47 /* HeadyMoviewBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadyMoviewBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18273EA5211DA39C00D4DE47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18273EA7211DA39C00D4DE47 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		182476CD212184B500E07FDA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				182476CE212184DF00E07FDA /* AppAppearance.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		18273E99211DA39B00D4DE47 = {
 			isa = PBXGroup;
 			children = (
@@ -108,8 +118,9 @@
 		18273EA4211DA39C00D4DE47 /* HeadyMoviewBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				182476C82120A6F800E07FDA /* Model */,
 				18273EA5211DA39C00D4DE47 /* AppDelegate.swift */,
+				182476CD212184B500E07FDA /* Utils */,
+				182476C82120A6F800E07FDA /* Model */,
 				182476C621209D1E00E07FDA /* Views */,
 				182476C421209A9800E07FDA /* ViewControllers */,
 				182476C521209B1C00E07FDA /* Networking */,
@@ -266,6 +277,7 @@
 				18273EA8211DA39C00D4DE47 /* SearchViewController.swift in Sources */,
 				18273EBA211EFF5D00D4DE47 /* PhotoCell.swift in Sources */,
 				18273EA6211DA39C00D4DE47 /* AppDelegate.swift in Sources */,
+				182476CF212184DF00E07FDA /* AppAppearance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

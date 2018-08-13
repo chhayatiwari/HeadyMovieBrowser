@@ -72,7 +72,7 @@ final class PhotoAPI {
         let url = apiBaseURL + endpoint
         let urlParams = allParameters(parameters)
         Alamofire.request(url, method: method, parameters: urlParams, encoding: encoding).validate(statusCode: 200..<300).responseObject { (response: DataResponse<SearchResult>) in
-            print("PhotoAPI: \(response.request?.url)")
+            print("PhotoAPI: \((response.request?.url)!)")
             switch response.result {
             case .success(let searchResult):
                 completion?(searchResult)

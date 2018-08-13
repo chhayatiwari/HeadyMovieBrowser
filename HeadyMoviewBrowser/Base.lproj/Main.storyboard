@@ -66,6 +66,7 @@
                                                 </label>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="6Gi-Ag-Zvx" firstAttribute="top" secondItem="hAo-Nb-BgA" secondAttribute="top" id="BYT-7p-FDs"/>
                                             <constraint firstItem="j9P-Ja-vB8" firstAttribute="leading" secondItem="hAo-Nb-BgA" secondAttribute="leading" id="FHB-t9-4yY"/>
@@ -75,6 +76,10 @@
                                             <constraint firstAttribute="trailing" secondItem="j9P-Ja-vB8" secondAttribute="trailing" id="eRv-yx-2By"/>
                                             <constraint firstAttribute="trailing" secondItem="6Gi-Ag-Zvx" secondAttribute="trailing" id="n1G-SQ-1eT"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="photoImageView" destination="6Gi-Ag-Zvx" id="HEO-Uw-Ttn"/>
+                                            <outlet property="photoName" destination="j9P-Ja-vB8" id="0Hk-Nc-7BX"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="FooterView" id="cwb-qG-gTe">
@@ -92,6 +97,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="2dW-Vs-ywf"/>
                     <connections>
+                        <outlet property="collectionView" destination="OTX-km-UZZ" id="rCM-QM-IpH"/>
                         <outlet property="searchDisplayController" destination="taD-oY-hsP" id="aFQ-41-2VO"/>
                     </connections>
                 </viewController>
