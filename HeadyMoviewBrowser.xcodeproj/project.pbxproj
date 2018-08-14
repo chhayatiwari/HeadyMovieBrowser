@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18215B422122B6AE00EBDCE8 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18215B412122B6AE00EBDCE8 /* UIViewExtension.swift */; };
 		182476CA2120A72000E07FDA /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182476C92120A72000E07FDA /* SearchResult.swift */; };
 		182476CC2120B0F000E07FDA /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182476CB2120B0F000E07FDA /* Photo.swift */; };
 		182476CF212184DF00E07FDA /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182476CE212184DF00E07FDA /* AppAppearance.swift */; };
@@ -16,7 +17,7 @@
 		18273EAB211DA39C00D4DE47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18273EA9211DA39C00D4DE47 /* Main.storyboard */; };
 		18273EAD211DA39F00D4DE47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18273EAC211DA39F00D4DE47 /* Assets.xcassets */; };
 		18273EB0211DA39F00D4DE47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18273EAE211DA39F00D4DE47 /* LaunchScreen.storyboard */; };
-		18273EB8211DE9AF00D4DE47 /* TMDBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18273EB7211DE9AE00D4DE47 /* TMDBConstants.swift */; };
+		18273EB8211DE9AF00D4DE47 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18273EB7211DE9AE00D4DE47 /* Constants.swift */; };
 		18273EBA211EFF5D00D4DE47 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18273EB9211EFF5C00D4DE47 /* PhotoCell.swift */; };
 		18273EBC211EFFDD00D4DE47 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18273EBB211EFFDD00D4DE47 /* CollectionReusableView.swift */; };
 		18273EBE211F04AC00D4DE47 /* PhotoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18273EBD211F04AC00D4DE47 /* PhotoAPI.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		0F940952EE9C5FA3DADED263 /* Pods-HeadyMoviewBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeadyMoviewBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeadyMoviewBrowser/Pods-HeadyMoviewBrowser.release.xcconfig"; sourceTree = "<group>"; };
+		18215B412122B6AE00EBDCE8 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		182476C92120A72000E07FDA /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		182476CB2120B0F000E07FDA /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		182476CE212184DF00E07FDA /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
@@ -36,7 +38,7 @@
 		18273EAC211DA39F00D4DE47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18273EAF211DA39F00D4DE47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18273EB1211DA39F00D4DE47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		18273EB7211DE9AE00D4DE47 /* TMDBConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBConstants.swift; sourceTree = "<group>"; };
+		18273EB7211DE9AE00D4DE47 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		18273EB9211EFF5C00D4DE47 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		18273EBB211EFFDD00D4DE47 /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
 		18273EBD211F04AC00D4DE47 /* PhotoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAPI.swift; sourceTree = "<group>"; };
@@ -86,7 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				182476C92120A72000E07FDA /* SearchResult.swift */,
-				18273EB7211DE9AE00D4DE47 /* TMDBConstants.swift */,
+				18273EB7211DE9AE00D4DE47 /* Constants.swift */,
 				182476CB2120B0F000E07FDA /* Photo.swift */,
 			);
 			path = Model;
@@ -95,6 +97,7 @@
 		182476CD212184B500E07FDA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				18215B412122B6AE00EBDCE8 /* UIViewExtension.swift */,
 				182476CE212184DF00E07FDA /* AppAppearance.swift */,
 			);
 			path = Utils;
@@ -248,6 +251,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-HeadyMoviewBrowser/Pods-HeadyMoviewBrowser-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Unbox/Unbox.framework",
 				"${BUILT_PRODUCTS_DIR}/UnboxedAlamofire/UnboxedAlamofire.framework",
@@ -256,6 +260,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Unbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UnboxedAlamofire.framework",
@@ -273,7 +278,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				182476CC2120B0F000E07FDA /* Photo.swift in Sources */,
-				18273EB8211DE9AF00D4DE47 /* TMDBConstants.swift in Sources */,
+				18273EB8211DE9AF00D4DE47 /* Constants.swift in Sources */,
+				18215B422122B6AE00EBDCE8 /* UIViewExtension.swift in Sources */,
 				182476CA2120A72000E07FDA /* SearchResult.swift in Sources */,
 				18273EBE211F04AC00D4DE47 /* PhotoAPI.swift in Sources */,
 				18273EBC211EFFDD00D4DE47 /* CollectionReusableView.swift in Sources */,
@@ -429,10 +435,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9T3NX6NLA5;
 				INFOPLIST_FILE = HeadyMoviewBrowser/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ChhayaTiwari.HeadyMoviewBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -448,10 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9T3NX6NLA5;
 				INFOPLIST_FILE = HeadyMoviewBrowser/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ChhayaTiwari.HeadyMoviewBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

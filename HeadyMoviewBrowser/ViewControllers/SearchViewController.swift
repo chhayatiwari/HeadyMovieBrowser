@@ -10,14 +10,14 @@ import UIKit
 import SnapKit
 import Alamofire
 import UnboxedAlamofire
-import AlamofireImage
+import SDWebImage
 
 protocol PaginationDelegate {
     
     func fetchMoreItems(with activityIndicator: UIActivityIndicatorView)
 }
 
-class SearchViewController: UIViewController , UICollectionViewDelegate, UICollectionViewDataSource {
+class SearchViewController: UIViewController , UICollectionViewDelegate, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -99,7 +99,7 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
     func addSearchBar() {
         view.addSubview(searchBar)
         searchBar.snp.makeConstraints {
-            $0.top.equalTo(super.topLayoutGuide.snp.bottom)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)//topLayoutGuide.snp.bottom)
             $0.width.equalTo(view)
             $0.height.equalTo(44.0)
         }
@@ -163,11 +163,12 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
         var cell = PhotoCell()
         if let photoCell: PhotoCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifierCell, for: indexPath) as? PhotoCell {
             photoCell.photoName.text = photos[indexPath.row].name
-            
-            let url = URL(string: photos[indexPath.row].imageURL)!
+            let urlString = Constants.imageCollUrl + photos[indexPath.row].imageURL
+            let url = URL(string: urlString)!
             // TODO
             // add placeholder image with imageView extension
-            photoCell.photoImageView.af_setImage(withURL: url)
+            
+            photoCell.photoImageView.sd_setImage(with: url)
             
             cell = photoCell
         }
@@ -193,16 +194,16 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
     
     // MARK: UICollectionViewDelegateFlowLayout
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(searchBar.frame.size.height, 0, 0, 0)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width
         let cellGridSize: CGFloat = (screenWidth / 2.0) - 5
-        
-        return CGSize(width: cellGridSize, height: cellGridSize)
+        let cellHeight: CGFloat = (cellGridSize*3)/2
+        return CGSize(width: cellGridSize, height: cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {

@@ -23,8 +23,8 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let url = URL(string: photoDetail.imageURL)!
+        let urlStr = Constants.imageBaseUrl + photoDetail.imageURL
+        let url = URL(string: urlStr)!
         detailImageView.af_setImage(withURL: url)
         
         titleLabel.text = photoDetail.name

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0940"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F9D6F1E50E5C5AA0F24518A1C7D589C9"
+               BlueprintIdentifier = "F94D924A5E164FF442CDEAA086685776"
                BuildableName = "Pods_HeadyMoviewBrowser.framework"
                BlueprintName = "Pods-HeadyMoviewBrowser"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F9D6F1E50E5C5AA0F24518A1C7D589C9"
+            BlueprintIdentifier = "F94D924A5E164FF442CDEAA086685776"
             BuildableName = "Pods_HeadyMoviewBrowser.framework"
             BlueprintName = "Pods-HeadyMoviewBrowser"
             ReferencedContainer = "container:Pods.xcodeproj">

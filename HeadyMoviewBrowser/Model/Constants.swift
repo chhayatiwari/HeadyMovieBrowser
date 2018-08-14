@@ -14,7 +14,8 @@ struct Constants {
     // MARK: TMDB
         static let BaseUrl = "https://api.themoviedb.org/3"
         static let ApiKey = "79f6a22bb53b1a0749f542396d1674ca"
-    
+        static let imageCollUrl = "http://image.tmdb.org/t/p/w342"
+        static let imageBaseUrl = "http://image.tmdb.org/t/p/w500"
     // MARK: TMDB Response Keys
     struct TMDBResponseKeys {
         static let Title = "title"

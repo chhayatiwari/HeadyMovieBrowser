@@ -7,7 +7,7 @@ target 'HeadyMoviewBrowser' do
   pod 'Alamofire'
   pod 'UnboxedAlamofire'
   pod 'AlamofireImage'
-  
+  pod 'SDWebImage'
   pod 'SnapKit', '~> 3.0.2'
   # Pods for HeadyMoviewBrowser
 
