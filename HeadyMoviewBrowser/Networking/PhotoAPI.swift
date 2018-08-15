@@ -12,6 +12,7 @@ import UnboxedAlamofire
 
 typealias Completion = ([Photo]) -> ()
 typealias SearchResultCompletion = (SearchResult) -> ()
+typealias LatestResultCompletion = (LatestResult) -> ()
 
 final class PhotoAPI {
     
@@ -28,10 +29,15 @@ final class PhotoAPI {
     func search(keyword term: String, page: String = "1", completion: SearchResultCompletion?) {
         
         let urlParams = [
-            "query": term,
-            "page": page
+            "query": term
+           // "page": page
         ]
         get(endpoint: "/search/movie", parameters: urlParams, completion: completion)
+    }
+    
+    func latest(completion: LatestResultCompletion?) {
+        
+        getNowPlaying(endpoint: Constants.latestMoview, completion: completion)
     }
     
     // MARK: Convenience methods
@@ -41,6 +47,14 @@ final class PhotoAPI {
                 method: .get,
                 encoding: URLEncoding.default,
                 parameters: parameters,
+                completion: completion
+        )
+    }
+    
+    private func getNowPlaying(endpoint: String, completion: LatestResultCompletion?) {
+        requestNowPlaying(endpoint: endpoint,
+                method: .get,
+                encoding: URLEncoding.default,
                 completion: completion
         )
     }
@@ -76,6 +90,21 @@ final class PhotoAPI {
             switch response.result {
             case .success(let searchResult):
                 completion?(searchResult)
+            case .failure(let error):
+                print("error: \(error)")
+            }
+        }
+    }
+    
+    private func requestNowPlaying(endpoint: String, method: HTTPMethod, encoding: ParameterEncoding, completion: LatestResultCompletion?) {
+        
+        let url = apiBaseURL + endpoint
+        let urlParams = allParameters(nil)
+        Alamofire.request(url, method: method, parameters: urlParams, encoding: encoding).validate(statusCode: 200..<300).responseObject { (response: DataResponse<LatestResult>) in
+            print("PhotoAPI: \((response.request?.url)!)")
+            switch response.result {
+            case .success(let latestResult):
+                completion?(latestResult)
             case .failure(let error):
                 print("error: \(error)")
             }

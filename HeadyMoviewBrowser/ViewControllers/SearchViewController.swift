@@ -26,7 +26,8 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
     private let detailSegue: String = "detailPhotoSegue"
     
     var searchBarActive: Bool = false
-    
+    var count = 0
+    var count1 = 0
     var searchBar: UISearchBar = {
         let bar = UISearchBar()
         bar.searchBarStyle = .prominent
@@ -44,6 +45,7 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
     }()
     
     var photos: [Photo] = []
+    var latestphotos: [Photo] = []
     
     var searchResult: SearchResult? {
         didSet {
@@ -51,6 +53,14 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
                 self.photos.append(contentsOf: photos)
             }
            // self.emptyStateView.isHidden = (searchResult?.totalItems)! > 0 ? true : false
+        }
+    }
+    
+    var latestResult: LatestResult? {
+        didSet {
+            if let photo = latestResult?.photos {
+                self.latestphotos.append(contentsOf: photo)
+            }
         }
     }
     
@@ -84,8 +94,8 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
                                       withReuseIdentifier: reuseIdentifierFooter)
         
         addSearchBar()
-        addRefreshControl()
-       // addEmptyState()
+       // addRefreshControl()
+        fetchLatestPhotos()
     }
     /*
     func addEmptyState() {
@@ -129,13 +139,25 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
     }
     
     func fetchPhotos(with term: String, on page: String) {
-        startRefreshControl()
+        //startRefreshControl()
         PhotoAPI.shared.search(keyword: term, page: page) {
             self.searchResult = $0
             // self.insertNewItems()
             self.collectionView?.reloadData()
-            self.refreshControl.endRefreshing()
+           // self.refreshControl.endRefreshing()
         }
+        count1 += 1
+        count += 1
+    }
+    
+    func fetchLatestPhotos () {
+        //startRefreshControl()
+        PhotoAPI.shared.latest { (latest) in
+            self.latestResult = latest
+            self.collectionView?.reloadData()
+            //self.refreshControl.endRefreshing()
+        }
+        
     }
     
     private func insertNewItems() {
@@ -156,21 +178,42 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos.count
+        if count == 0 {
+            //count += 1
+            return latestphotos.count
+        } else {
+            return photos.count
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = PhotoCell()
         if let photoCell: PhotoCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifierCell, for: indexPath) as? PhotoCell {
-            photoCell.photoName.text = photos[indexPath.row].name
-            let urlString = Constants.imageCollUrl + photos[indexPath.row].imageURL
-            let url = URL(string: urlString)!
-            // TODO
-            // add placeholder image with imageView extension
+            if count1 == 0 {
+                //count1 += 1
+                photoCell.photoName.text = latestphotos[indexPath.row].name
+                let urlString = Constants.imageCollUrl + latestphotos[indexPath.row].imageURL
+                let url = URL(string: urlString)!
+                // TODO
+                // add placeholder image with imageView extension
+                
+                photoCell.photoImageView.sd_setImage(with: url)
+                
+                cell = photoCell
+            }
+            else {
+                photoCell.photoName.text = photos[indexPath.row].name
+                let urlString = Constants.imageCollUrl + photos[indexPath.row].imageURL
+                let url = URL(string: urlString)!
+                // TODO
+                // add placeholder image with imageView extension
+                
+                photoCell.photoImageView.sd_setImage(with: url)
+                
+                cell = photoCell
+            }
             
-            photoCell.photoImageView.sd_setImage(with: url)
-            
-            cell = photoCell
         }
         return cell
     }
@@ -312,6 +355,8 @@ extension SearchViewController: UISearchBarDelegate {
     }
     
     func cancelSearching() {
+        count = 0
+        count1 = 0
         searchBarActive = false
         searchBar.resignFirstResponder()
         searchBar.text = ""

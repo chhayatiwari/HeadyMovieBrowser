@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		18215B422122B6AE00EBDCE8 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18215B412122B6AE00EBDCE8 /* UIViewExtension.swift */; };
+		18215B4421235A7300EBDCE8 /* LatestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18215B4321235A7300EBDCE8 /* LatestResult.swift */; };
 		182476CA2120A72000E07FDA /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182476C92120A72000E07FDA /* SearchResult.swift */; };
 		182476CC2120B0F000E07FDA /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182476CB2120B0F000E07FDA /* Photo.swift */; };
 		182476CF212184DF00E07FDA /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182476CE212184DF00E07FDA /* AppAppearance.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		0F940952EE9C5FA3DADED263 /* Pods-HeadyMoviewBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeadyMoviewBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeadyMoviewBrowser/Pods-HeadyMoviewBrowser.release.xcconfig"; sourceTree = "<group>"; };
 		18215B412122B6AE00EBDCE8 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		18215B4321235A7300EBDCE8 /* LatestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestResult.swift; sourceTree = "<group>"; };
 		182476C92120A72000E07FDA /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		182476CB2120B0F000E07FDA /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		182476CE212184DF00E07FDA /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				182476C92120A72000E07FDA /* SearchResult.swift */,
+				18215B4321235A7300EBDCE8 /* LatestResult.swift */,
 				18273EB7211DE9AE00D4DE47 /* Constants.swift */,
 				182476CB2120B0F000E07FDA /* Photo.swift */,
 			);
@@ -279,6 +282,7 @@
 			files = (
 				182476CC2120B0F000E07FDA /* Photo.swift in Sources */,
 				18273EB8211DE9AF00D4DE47 /* Constants.swift in Sources */,
+				18215B4421235A7300EBDCE8 /* LatestResult.swift in Sources */,
 				18215B422122B6AE00EBDCE8 /* UIViewExtension.swift in Sources */,
 				182476CA2120A72000E07FDA /* SearchResult.swift in Sources */,
 				18273EBE211F04AC00D4DE47 /* PhotoAPI.swift in Sources */,
@@ -435,7 +439,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9T3NX6NLA5;
 				INFOPLIST_FILE = HeadyMoviewBrowser/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ChhayaTiwari.HeadyMoviewBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -451,7 +458,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9T3NX6NLA5;
 				INFOPLIST_FILE = HeadyMoviewBrowser/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ChhayaTiwari.HeadyMoviewBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
