@@ -71,16 +71,7 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
         indicator.bounds.size.height = 65
         return indicator
     }()
-    /*
-    var emptyStateView: UIImageView = {
-        let emptyState = UIImageView(image: UIImage(named: "search-results-empty-state"))
-        emptyState.snp.makeConstraints {
-            $0.size.equalTo(CGSize(width: 236.0, height: 247.0))
-        }
-        emptyState.isHidden = false
-        return emptyState
-    }()
-    */
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -97,23 +88,31 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
        // addRefreshControl()
         fetchLatestPhotos()
     }
-    /*
-    func addEmptyState() {
-        view.addSubview(emptyStateView)
-        emptyStateView.snp.makeConstraints {
-            $0.centerX.equalTo(view.snp.centerX)
-            $0.top.equalTo(topLayoutGuide.snp.bottom).offset(80.0)
-        }
-    }
-    */
+    
     func addSearchBar() {
         view.addSubview(searchBar)
         searchBar.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)//topLayoutGuide.snp.bottom)
+            $0.top.equalTo(super.topLayoutGuide.snp.bottom)
             $0.width.equalTo(view)
             $0.height.equalTo(44.0)
         }
     }
+    
+    @IBAction func sortAction(_ sender: Any) {
+        let actionSheet = UIAlertController(title: "Choose option", message: "Sort On the basis", preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Most Popularity", style: .default, handler: { (action:UIAlertAction) in
+            
+            self.collectionView?.reloadData()
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Highest Rating", style: .default, handler: { (action:UIAlertAction) in
+            
+            self.collectionView?.reloadData()
+        }))
+        self.present(actionSheet, animated: true, completion: nil)
+    }
+    
     
     func addRefreshControl() {
         refreshControl.addTarget(self, action: #selector(refreshControlAction), for: .valueChanged)
@@ -142,7 +141,7 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
         //startRefreshControl()
         PhotoAPI.shared.search(keyword: term, page: page) {
             self.searchResult = $0
-            // self.insertNewItems()
+           // self.insertNewItems()
             self.collectionView?.reloadData()
            // self.refreshControl.endRefreshing()
         }
@@ -260,17 +259,24 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == detailSegue {
             guard let indexPath = collectionView?.indexPath(for: sender as! PhotoCell) else { return }
+            
             if let detailController = segue.destination as? DetailViewController {
                 let backItem = UIBarButtonItem()
                 backItem.title = ""
                 navigationItem.backBarButtonItem = backItem
-                detailController.photoDetail = photos[indexPath.row]
+                if count == 0 {
+                   detailController.photoDetail = latestphotos[indexPath.row]
+                }
+                else {
+                    detailController.photoDetail = photos[indexPath.row]
+                }
+                
             }
         }
     }
     
     // MARK: UIScrollViewDelegate
-    
+   /*
      func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         if let collectionView: UICollectionView = scrollView as? UICollectionView {
@@ -283,7 +289,7 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
             )
         }
     }
-    
+    */
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if decelerate {
             
@@ -361,7 +367,6 @@ extension SearchViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         searchBar.text = ""
         photos.removeAll()
-     //   emptyStateView.isHidden = photos.count > 0 ? true : false
     }
 
 }

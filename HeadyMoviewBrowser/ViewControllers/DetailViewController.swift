@@ -29,9 +29,6 @@ class DetailViewController: UIViewController {
         
         titleLabel.text = photoDetail.name
         userRatingLabel.text = userRatingLabel.text! + String(photoDetail.userRaring)
-       /* let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-         if let yourDate = dateFormatter.date(from:photoDetail.createdAt) { }*/
         releaseDate.text = releaseDate.text! + photoDetail.createdAt
         
         descLabel.text =  photoDetail.description ?? "No Description"

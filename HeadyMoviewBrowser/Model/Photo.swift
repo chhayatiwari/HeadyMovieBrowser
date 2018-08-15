@@ -26,8 +26,6 @@ extension Photo: Unboxable {
         self.nsfw = try unboxer.unbox(key: "adult")
         self.imageURL = try unboxer.unbox(key: "poster_path")
         self.userRaring = try unboxer.unbox(key: "vote_average")
-       /* let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ" */
         self.createdAt = try unboxer.unbox(key: "release_date")
     }
 }

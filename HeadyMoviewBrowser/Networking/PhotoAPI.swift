@@ -32,12 +32,12 @@ final class PhotoAPI {
             "query": term
            // "page": page
         ]
-        get(endpoint: "/search/movie", parameters: urlParams, completion: completion)
+        get(endpoint: Constants.searchMovie, parameters: urlParams, completion: completion)
     }
     
     func latest(completion: LatestResultCompletion?) {
         
-        getNowPlaying(endpoint: Constants.latestMoview, completion: completion)
+        getNowPlaying(endpoint: Constants.latestMovie, completion: completion)
     }
     
     // MARK: Convenience methods
