@@ -27,7 +27,7 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
     
     var searchBarActive: Bool = false
     var count = 0
-    var count1 = 0
+   
     var searchBar: UISearchBar = {
         let bar = UISearchBar()
         bar.searchBarStyle = .prominent
@@ -52,7 +52,6 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
             if let photos = searchResult?.photos {
                 self.photos.append(contentsOf: photos)
             }
-           // self.emptyStateView.isHidden = (searchResult?.totalItems)! > 0 ? true : false
         }
     }
     
@@ -74,8 +73,6 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //self.navigationItem.titleView = UIImageView(image: UIImage(named: "title"))
      
         searchBar.delegate = self
         paginationDelegate = self
@@ -84,7 +81,6 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
                                       withReuseIdentifier: reuseIdentifierFooter)
         
         addSearchBar()
-       // addRefreshControl()
         fetchLatestPhotos()
     }
     
@@ -130,54 +126,27 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
         }
     }
     
-    func addRefreshControl() {
-        refreshControl.addTarget(self, action: #selector(refreshControlAction), for: .valueChanged)
-        collectionView?.addSubview(refreshControl)
-    }
-    
-    func startRefreshControl() {
-        if refreshControl.isRefreshing == false {
-            if let collectionView = self.collectionView {
-                collectionView.contentOffset = CGPoint(x: 0, y: -refreshControl.frame.size.height)
-            }
-            refreshControl.beginRefreshing()
-        }
-    }
-    
-    @objc func refreshControlAction() {
-        let duration = DispatchTime.now() + 0.5
-        DispatchQueue.main.asyncAfter(deadline: duration) {
-            if let currentKeyword = self.searchBar.text {
-                self.fetchPhotos(with: currentKeyword, on: "1")
-            }
-        }
-    }
-    
     func fetchPhotos(with term: String, on page: String) {
-        //startRefreshControl()
+        
         PhotoAPI.shared.search(keyword: term, page: page) {
             self.searchResult = $0
-           // self.insertNewItems()
             self.collectionView?.reloadData()
-           // self.refreshControl.endRefreshing()
         }
-        count1 += 1
         count += 1
     }
     
     func fetchLatestPhotos () {
-        //startRefreshControl()
+        
         PhotoAPI.shared.latest { (latest) in
             self.latestResult = latest
             self.collectionView?.reloadData()
-            //self.refreshControl.endRefreshing()
         }
         
     }
     
     private func insertNewItems() {
         // TODO
-        // on pagination insertInto collectionView rather then reload!
+        // on pagination insertInto collectionView rather than reload!
         self.collectionView?.performBatchUpdates({
             // insertItems
             self.collectionView?.insertItems(at: [IndexPath(item: self.photos.count, section: 0)])
@@ -194,7 +163,7 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if count == 0 {
-            //count += 1
+            
             return latestphotos.count
         } else {
             return photos.count
@@ -254,11 +223,7 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
     }
     
     // MARK: UICollectionViewDelegateFlowLayout
-    /*
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(searchBar.frame.size.height, 0, 0, 0)
-    }
-    */
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width
@@ -274,7 +239,8 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
         }
         return CGSize.zero
     }
- 
+    
+    // MARK: Segue for going on DetailViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == detailSegue {
             guard let indexPath = collectionView?.indexPath(for: sender as! PhotoCell) else { return }
@@ -295,20 +261,7 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
     }
     
     // MARK: UIScrollViewDelegate
-   /*
-     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        if let collectionView: UICollectionView = scrollView as? UICollectionView {
-            let searchBarBoundsY = (self.navigationController?.navigationBar.frame.size.height)! + UIApplication.shared.statusBarFrame.size.height
-            searchBar.frame = CGRect(
-                x: searchBar.frame.origin.x,
-                y: searchBarBoundsY + ((-1 * collectionView.contentOffset.y) - searchBarBoundsY),
-                width: searchBar.frame.size.width,
-                height: searchBar.frame.size.height
-            )
-        }
-    }
-    */
+   
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if decelerate {
             
@@ -381,7 +334,6 @@ extension SearchViewController: UISearchBarDelegate {
     
     func cancelSearching() {
         count = 0
-        count1 = 0
         searchBarActive = false
         searchBar.resignFirstResponder()
         searchBar.text = ""

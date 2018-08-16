@@ -19,16 +19,4 @@ struct Constants {
         static let searchMovie = "/search/movie"
         static let latestMovie = "/movie/now_playing"
     
-    // MARK: TMDB Response Keys
-    struct TMDBResponseKeys {
-        static let Title = "title"
-        static let Desc = "overview"
-        static let PosterPath = "poster_path"
-        static let Vote = "voter_average"
-        static let Date = "release_date"
-        static let Adult = "adult"
-        static let Success = "success"
-        static let UserID = "id"
-        static let Results = "results"
-}
 }

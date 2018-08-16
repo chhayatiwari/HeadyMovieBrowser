@@ -19,6 +19,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var userRatingLabel: UILabel!
     @IBOutlet weak var releaseDate: UILabel!
+    
     var photoDetail: Photo!
     
     override func viewDidLoad() {

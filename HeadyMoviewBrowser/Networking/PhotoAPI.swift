@@ -58,7 +58,7 @@ final class PhotoAPI {
                 completion: completion
         )
     }
-    
+   /*
     private func post(endpoint: String, parameters: Parameters?, completion: SearchResultCompletion?) {
         request(endpoint: endpoint,
                 method: .post,
@@ -67,7 +67,8 @@ final class PhotoAPI {
                 completion: completion
         )
     }
-    
+    */
+    // for appending parameters to Api to form a url
     private func allParameters(_ parameters: Parameters?) -> Parameters? {
         var params = parameters
         if params != nil {
@@ -80,7 +81,7 @@ final class PhotoAPI {
         }
         return params
     }
-    
+    //MARK: Request Method for Search Movie Posters
     private func request(endpoint: String, method: HTTPMethod, encoding: ParameterEncoding, parameters: Parameters?, completion: SearchResultCompletion?) {
         
         let url = apiBaseURL + endpoint
@@ -95,7 +96,7 @@ final class PhotoAPI {
             }
         }
     }
-    
+    //MARK: Request Method for Current Movie Posters
     private func requestNowPlaying(endpoint: String, method: HTTPMethod, encoding: ParameterEncoding, completion: LatestResultCompletion?) {
         
         let url = apiBaseURL + endpoint
