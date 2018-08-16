@@ -15,7 +15,8 @@ struct Photo {
     let nsfw: Bool
     let imageURL: String
     let createdAt: String
-    let userRaring: Int
+    let userRating: Double
+    let popularity: Double
 }
 
 extension Photo: Unboxable {
@@ -25,7 +26,8 @@ extension Photo: Unboxable {
         self.description = unboxer.unbox(key: "overview")
         self.nsfw = try unboxer.unbox(key: "adult")
         self.imageURL = try unboxer.unbox(key: "poster_path")
-        self.userRaring = try unboxer.unbox(key: "vote_average")
+        self.userRating = try unboxer.unbox(key: "vote_average")
+        self.popularity = try unboxer.unbox(key: "popularity")
         self.createdAt = try unboxer.unbox(key: "release_date")
     }
 }

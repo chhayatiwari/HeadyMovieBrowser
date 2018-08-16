@@ -11,7 +11,7 @@ import UIKit
 class PhotoCell: UICollectionViewCell {
     
     @IBOutlet weak var photoName: UILabel!
-    
+    @IBOutlet weak var userRating: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
     
     override func updateConstraints() {

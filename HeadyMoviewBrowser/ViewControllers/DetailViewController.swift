@@ -28,7 +28,7 @@ class DetailViewController: UIViewController {
         detailImageView.af_setImage(withURL: url)
         
         titleLabel.text = photoDetail.name
-        userRatingLabel.text = userRatingLabel.text! + String(photoDetail.userRaring)
+        userRatingLabel.text = userRatingLabel.text! + String(photoDetail.userRating)
         releaseDate.text = releaseDate.text! + photoDetail.createdAt
         
         descLabel.text =  photoDetail.description ?? "No Description"

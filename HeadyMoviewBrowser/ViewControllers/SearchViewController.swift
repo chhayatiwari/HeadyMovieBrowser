@@ -101,18 +101,35 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
     @IBAction func sortAction(_ sender: Any) {
         let actionSheet = UIAlertController(title: "Choose option", message: "Sort On the basis", preferredStyle: .actionSheet)
         
-        actionSheet.addAction(UIAlertAction(title: "Most Popularity", style: .default, handler: { (action:UIAlertAction) in
-            
+        actionSheet.addAction(UIAlertAction(title: "Most Popular", style: .default, handler: { (action:UIAlertAction) in
+            self.sortPopularity()
             self.collectionView?.reloadData()
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Highest Rating", style: .default, handler: { (action:UIAlertAction) in
-            
+            self.highRating()
             self.collectionView?.reloadData()
         }))
         self.present(actionSheet, animated: true, completion: nil)
     }
     
+    func highRating() {
+        if count == 0 {
+            latestphotos = latestphotos.sorted{$1.userRating < $0.userRating}
+        }
+        else {
+            photos = photos.sorted{$1.userRating < $0.userRating}
+        }
+    }
+    
+    func sortPopularity() {
+        if count == 0 {
+            latestphotos = latestphotos.sorted{$1.popularity < $0.popularity}
+        }
+        else {
+            photos = photos.sorted{$1.popularity < $0.popularity}
+        }
+    }
     
     func addRefreshControl() {
         refreshControl.addTarget(self, action: #selector(refreshControlAction), for: .valueChanged)
@@ -189,9 +206,11 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = PhotoCell()
         if let photoCell: PhotoCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifierCell, for: indexPath) as? PhotoCell {
-            if count1 == 0 {
-                //count1 += 1
+            
+            if count == 0 {
+                
                 photoCell.photoName.text = latestphotos[indexPath.row].name
+                photoCell.userRating.text = String(latestphotos[indexPath.row].userRating)
                 let urlString = Constants.imageCollUrl + latestphotos[indexPath.row].imageURL
                 let url = URL(string: urlString)!
                 // TODO
@@ -203,6 +222,7 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
             }
             else {
                 photoCell.photoName.text = photos[indexPath.row].name
+                photoCell.userRating.text = String(photos[indexPath.row].userRating)
                 let urlString = Constants.imageCollUrl + photos[indexPath.row].imageURL
                 let url = URL(string: urlString)!
                 // TODO

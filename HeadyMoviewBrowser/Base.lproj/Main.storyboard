@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -65,12 +66,36 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbK-95-2hK">
+                                                    <rect key="frame" x="92" y="16" width="60" height="60"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="Fxq-qR-mUv"/>
+                                                        <constraint firstAttribute="width" constant="60" id="XWc-RB-t5r"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="30"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                            <color key="value" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="6Gi-Ag-Zvx" firstAttribute="top" secondItem="hAo-Nb-BgA" secondAttribute="top" id="BYT-7p-FDs"/>
                                             <constraint firstItem="j9P-Ja-vB8" firstAttribute="leading" secondItem="hAo-Nb-BgA" secondAttribute="leading" constant="2" id="G7j-S0-aXW"/>
+                                            <constraint firstItem="VbK-95-2hK" firstAttribute="top" secondItem="hAo-Nb-BgA" secondAttribute="topMargin" constant="8" id="TJe-MI-LpH"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="VbK-95-2hK" secondAttribute="trailing" constant="8" id="c3S-fC-peb"/>
                                             <constraint firstAttribute="bottom" secondItem="6Gi-Ag-Zvx" secondAttribute="bottom" constant="50" id="cAp-jY-S8p"/>
                                             <constraint firstAttribute="bottom" secondItem="j9P-Ja-vB8" secondAttribute="bottom" id="d4d-q5-NtM"/>
                                             <constraint firstAttribute="trailing" secondItem="j9P-Ja-vB8" secondAttribute="trailing" constant="2" id="hxD-Uy-DX3"/>
@@ -88,6 +113,7 @@
                                         <connections>
                                             <outlet property="photoImageView" destination="6Gi-Ag-Zvx" id="HEO-Uw-Ttn"/>
                                             <outlet property="photoName" destination="j9P-Ja-vB8" id="0Hk-Nc-7BX"/>
+                                            <outlet property="userRating" destination="VbK-95-2hK" id="IMi-do-222"/>
                                             <segue destination="AaF-wf-RA6" kind="show" identifier="detailPhotoSegue" id="E5Q-ow-AuP"/>
                                         </connections>
                                     </collectionViewCell>
