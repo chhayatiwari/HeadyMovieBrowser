@@ -75,11 +75,10 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.navigationItem.titleView = UIImageView(image: UIImage(named: "navbar-logo"))
-        
+        //self.navigationItem.titleView = UIImageView(image: UIImage(named: "title"))
+     
         searchBar.delegate = self
         paginationDelegate = self
-        
         self.collectionView?.register(CollectionReusableView.self,
                                       forSupplementaryViewOfKind: UICollectionElementKindSectionFooter,
                                       withReuseIdentifier: reuseIdentifierFooter)
@@ -255,11 +254,11 @@ class SearchViewController: UIViewController , UICollectionViewDelegate, UIColle
     }
     
     // MARK: UICollectionViewDelegateFlowLayout
-    
+    /*
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(searchBar.frame.size.height, 0, 0, 0)
     }
-    
+    */
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width

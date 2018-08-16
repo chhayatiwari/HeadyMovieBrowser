@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		18215B422122B6AE00EBDCE8 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18215B412122B6AE00EBDCE8 /* UIViewExtension.swift */; };
 		18215B4421235A7300EBDCE8 /* LatestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18215B4321235A7300EBDCE8 /* LatestResult.swift */; };
+		18215B4621258E4800EBDCE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18215B4521258E4800EBDCE8 /* Assets.xcassets */; };
 		182476CA2120A72000E07FDA /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182476C92120A72000E07FDA /* SearchResult.swift */; };
 		182476CC2120B0F000E07FDA /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182476CB2120B0F000E07FDA /* Photo.swift */; };
 		182476CF212184DF00E07FDA /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182476CE212184DF00E07FDA /* AppAppearance.swift */; };
@@ -16,7 +17,6 @@
 		18273EA6211DA39C00D4DE47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18273EA5211DA39C00D4DE47 /* AppDelegate.swift */; };
 		18273EA8211DA39C00D4DE47 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18273EA7211DA39C00D4DE47 /* SearchViewController.swift */; };
 		18273EAB211DA39C00D4DE47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18273EA9211DA39C00D4DE47 /* Main.storyboard */; };
-		18273EAD211DA39F00D4DE47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18273EAC211DA39F00D4DE47 /* Assets.xcassets */; };
 		18273EB0211DA39F00D4DE47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18273EAE211DA39F00D4DE47 /* LaunchScreen.storyboard */; };
 		18273EB8211DE9AF00D4DE47 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18273EB7211DE9AE00D4DE47 /* Constants.swift */; };
 		18273EBA211EFF5D00D4DE47 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18273EB9211EFF5C00D4DE47 /* PhotoCell.swift */; };
@@ -29,6 +29,7 @@
 		0F940952EE9C5FA3DADED263 /* Pods-HeadyMoviewBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeadyMoviewBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeadyMoviewBrowser/Pods-HeadyMoviewBrowser.release.xcconfig"; sourceTree = "<group>"; };
 		18215B412122B6AE00EBDCE8 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		18215B4321235A7300EBDCE8 /* LatestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestResult.swift; sourceTree = "<group>"; };
+		18215B4521258E4800EBDCE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		182476C92120A72000E07FDA /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		182476CB2120B0F000E07FDA /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		182476CE212184DF00E07FDA /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
@@ -37,7 +38,6 @@
 		18273EA5211DA39C00D4DE47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18273EA7211DA39C00D4DE47 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		18273EAA211DA39C00D4DE47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		18273EAC211DA39F00D4DE47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18273EAF211DA39F00D4DE47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18273EB1211DA39F00D4DE47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18273EB7211DE9AE00D4DE47 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 				182476C421209A9800E07FDA /* ViewControllers */,
 				182476C521209B1C00E07FDA /* Networking */,
 				18273EA9211DA39C00D4DE47 /* Main.storyboard */,
-				18273EAC211DA39F00D4DE47 /* Assets.xcassets */,
+				18215B4521258E4800EBDCE8 /* Assets.xcassets */,
 				18273EAE211DA39F00D4DE47 /* LaunchScreen.storyboard */,
 				18273EB1211DA39F00D4DE47 /* Info.plist */,
 			);
@@ -219,7 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18273EB0211DA39F00D4DE47 /* LaunchScreen.storyboard in Resources */,
-				18273EAD211DA39F00D4DE47 /* Assets.xcassets in Resources */,
+				18215B4621258E4800EBDCE8 /* Assets.xcassets in Resources */,
 				18273EAB211DA39C00D4DE47 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,6 +439,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9T3NX6NLA5;
 				INFOPLIST_FILE = HeadyMoviewBrowser/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,6 +459,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9T3NX6NLA5;
 				INFOPLIST_FILE = HeadyMoviewBrowser/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
